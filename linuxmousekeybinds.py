@@ -275,18 +275,31 @@ if __name__ == "__main__":
     
     lmkb = linuxmousekeybinds("Logitech G300s Optical Gaming Mouse")
 
-    #./ratslap -mf4 --g5 button6 --g4 button7 --g6 button8 --g7 button95
+    #./ratslap -mf4 --g5 button6 --g4 button7 --g6 button8 --g7 button9
+
+    #BTN_SIDE =    g5
+    #BTN_EXTRA =   g4
+    #BTN_FORWARD = g7
+    #BTN_BACK =    g6
 
     target = 12570
 
+    lmkb.bind_key_to_button(target, "BTN_SIDE",   "5")   #
+    
+    lmkb.bind_key_to_button(target, "BTN_EXTRA", ["e", 500, "6","2", 500, "b"])  # Macro: "1", 500ms delay, "2"
+    
+    lmkb.bind_key_to_button(target, "BTN_FORWARD","7")   #  
+    lmkb.bind_key_to_button(target, "BTN_BACK",   "8")   #
+
+    ## DISABLED
     # lmkb.bind_key_to_button(target, "BTN_LEFT",   "1")   #
     # lmkb.bind_key_to_button(target, "BTN_MOUSE",  "2")   #
     # lmkb.bind_key_to_button(target, "BTN_RIGHT",  "3")   #
-    #lmkb.bind_key_to_button(target, "BTN_MIDDLE", "4")   #5
-    lmkb.bind_key_to_button(target, "BTN_SIDE",   "5")   #
-    lmkb.bind_key_to_button(target, "BTN_EXTRA",  "6")   #
-    lmkb.bind_key_to_button(target, "BTN_FORWARD","7")   #  
-    lmkb.bind_key_to_button(target, "BTN_BACK",   "8")   #
+    # lmkb.bind_key_to_button(target, "BTN_MIDDLE", "4")   #
+    # lmkb.bind_key_to_button(target, "BTN_SIDE",   "5")   #
+    # lmkb.bind_key_to_button(target, "BTN_EXTRA",  "6")   #
+    # lmkb.bind_key_to_button(target, "BTN_FORWARD","7")   #  
+    # lmkb.bind_key_to_button(target, "BTN_BACK",   "8")   #
     # lmkb.bind_key_to_button(target, "BTN_TASK",   "9")   # 
     # lmkb.bind_key_to_button(target, "REL_X+",     "0")   # 
     # lmkb.bind_key_to_button(target, "REL_X-",     "a")   # 
@@ -295,6 +308,7 @@ if __name__ == "__main__":
     # lmkb.bind_key_to_button(target, "REL_WHEEL+", "d")   # 
     # lmkb.bind_key_to_button(target, "REL_WHEEL-", "e")   # 
 
+    ## EXAMPLES
     # lmkb.bind_key_to_button(7154, "BTN_SIDE", "3")  # binding by PID instead of window-name
     # lmkb.bind_key_to_button(None, "BTN_SIDE", "1")  # default binding for any other window
 

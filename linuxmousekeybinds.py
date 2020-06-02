@@ -120,7 +120,8 @@ class linuxmousekeybinds():
     def _do_key(self, appind, keynam, down=True, up=True):
         cmd = "nice -n {} xdotool {} --window {} {}".format(self.nice, "{}", appind, keynam)
         if down:
-            subprocess.Popen(cmd.format("keydown"), stdout=subprocess.PIPE, shell=True)
+            if self.verbose: print("executing: ", cmd)
+            subprocess.Popen(cmd.format("keydown"), stdout=subprocess.PIPE, shell=True)       
         if down and up:
             time.sleep(self.delay)
         if up:
@@ -272,26 +273,40 @@ if __name__ == "__main__":
 
     # Example Config:
     
-    lmkb = linuxmousekeybinds("Logitech G500s Laser Gaming Mouse")
+    lmkb = linuxmousekeybinds("Logitech G300s Optical Gaming Mouse")
 
-    lmkb.bind_key_to_button("Tomb Raider", "BTN_EXTRA",   "3")       # thumb button forward
-    lmkb.bind_key_to_button("Tomb Raider", "BTN_FORWARD", "c")       # thumb button middle
-    lmkb.bind_key_to_button("Tomb Raider", "BTN_SIDE",    "Escape")  # thumb button backward
-    lmkb.bind_key_to_button("Tomb Raider", "REL_HWHEEL+", "r")       # wheel sideways left
-    lmkb.bind_key_to_button("Tomb Raider", "REL_HWHEEL-", "v")       # wheel sideways right
+    #./ratslap -mf4 --g5 button6 --g4 button7 --g6 button8 --g7 button95
 
-    lmkb.bind_key_to_button(7154, "BTN_SIDE", "3")  # binding by PID instead of window-name
-    lmkb.bind_key_to_button(None, "BTN_SIDE", "1")  # default binding for any other window
+    target = 12570
 
-    lmkb.bind_key_to_button("Doom", "BTN_EXTRA", ["1", 500, "2"])  # Macro: "1", 500ms delay, "2"
-    lmkb.bind_key_to_button("Doom", "BTN_SIDE",  ["3-", 50, "3+"]) # Macro: "3"-keydown, 50ms delay, "3"-keyup
+    # lmkb.bind_key_to_button(target, "BTN_LEFT",   "1")   #
+    # lmkb.bind_key_to_button(target, "BTN_MOUSE",  "2")   #
+    # lmkb.bind_key_to_button(target, "BTN_RIGHT",  "3")   #
+    #lmkb.bind_key_to_button(target, "BTN_MIDDLE", "4")   #5
+    lmkb.bind_key_to_button(target, "BTN_SIDE",   "5")   #
+    lmkb.bind_key_to_button(target, "BTN_EXTRA",  "6")   #
+    lmkb.bind_key_to_button(target, "BTN_FORWARD","7")   #  
+    lmkb.bind_key_to_button(target, "BTN_BACK",   "8")   #
+    # lmkb.bind_key_to_button(target, "BTN_TASK",   "9")   # 
+    # lmkb.bind_key_to_button(target, "REL_X+",     "0")   # 
+    # lmkb.bind_key_to_button(target, "REL_X-",     "a")   # 
+    # lmkb.bind_key_to_button(target, "REL_Y+",     "b")   # 
+    # lmkb.bind_key_to_button(target, "REL_Y-",     "c")   #
+    # lmkb.bind_key_to_button(target, "REL_WHEEL+", "d")   # 
+    # lmkb.bind_key_to_button(target, "REL_WHEEL-", "e")   # 
 
-    def cb1():
-        print("Tomb Raider got focus!")
-    def cb2():
-        print("Tomb Raider lost focus!")
-    lmkb.set_callback_focus_on( "Tomb Raider", cb1) # cb1 will be executed on Tomb Raider getting focus
-    lmkb.set_callback_focus_off("Tomb Raider", cb2) # cb2 will be executed on Tomb Raider loosing focus
+    # lmkb.bind_key_to_button(7154, "BTN_SIDE", "3")  # binding by PID instead of window-name
+    # lmkb.bind_key_to_button(None, "BTN_SIDE", "1")  # default binding for any other window
+
+    # lmkb.bind_key_to_button("Doom", "BTN_EXTRA", ["1", 500, "2"])  # Macro: "1", 500ms delay, "2"
+    # lmkb.bind_key_to_button("Doom", "BTN_SIDE",  ["3-", 50, "3+"]) # Macro: "3"-keydown, 50ms delay, "3"-keyup
+
+    # def cb1():
+    #     print("Tomb Raider got focus!")
+    # def cb2():
+    #     print("Tomb Raider lost focus!")
+    # lmkb.set_callback_focus_on( "Tomb Raider", cb1) # cb1 will be executed on Tomb Raider getting focus
+    # lmkb.set_callback_focus_off("Tomb Raider", cb2) # cb2 will be executed on Tomb Raider loosing focus
 
     lmkb.run()
     while lmkb.is_running():

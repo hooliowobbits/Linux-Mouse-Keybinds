@@ -2,7 +2,7 @@ FORKED FROM https://github.com/dajusc/Linux-Mouse-Keybinds
 
 # NOTE! To get this to work with Logitech g300s
 By default the g300s won't sent mouse buttons on most of the extra buttons.
-You can fix that by installing ratslap and configure your mouse as follows:
+You can fix that by installing https://github.com/krayon/ratslap and configure your mouse as follows:
 
 ```
 $ sudo ./ratslap -mf4 --g5 button6 --g4 button7 --g6 button9 --g7 button8 --select f4

@@ -1,3 +1,5 @@
+FORKED FROM https://github.com/dajusc/Linux-Mouse-Keybinds
+
 # Linux-Mouse-Keybinds
 Configurable mouse button keybinds for linux. Works for Wine/Proton apps. Features automatic profiles.
 

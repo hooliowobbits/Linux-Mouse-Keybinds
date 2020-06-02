@@ -1,5 +1,32 @@
 FORKED FROM https://github.com/dajusc/Linux-Mouse-Keybinds
 
+# NOTE! To get this to work with Logitech g300s
+By default the g300s won't sent mouse buttons on most of the extra buttons.
+You can fix that by installing ratslap and configure your mouse as follows:
+
+```
+$ sudo ./ratslap -mf4 --g5 button6 --g4 button7 --g6 button9 --g7 button8 --select f4
+RatSlap v0.3.2 (BUILT: 2020-05-25 13:48:43+1000)
+Copyright (C) 2016-2020 Todd Harbour
+Linux configuration tool for Logitech mice (currently only G300/G300S)
+https://gitlab.com/krayon/ratslap/
+Found Logitech G300s (046d:c246) @ 0x558c79155cd0
+Detaching kernel driver...
+Modifying Mode: F4
+    Setting button 5: button6
+    Setting button 4: button7
+    Setting button 6: button9
+    Setting button 7: button8
+Mode Selection Specified: F4
+Saving Mode: F4
+Selecting Mode: F4
+Attaching kernel driver...
+```
+
+From there the rest of the Linux-Mouse-Keybinds doco should work ok.
+
+..what follows is the original Linux-Mouse-Keybinds readme.
+
 # Linux-Mouse-Keybinds
 Configurable mouse button keybinds for linux. Works for Wine/Proton apps. Features automatic profiles.
 

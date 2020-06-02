@@ -1,7 +1,7 @@
 FORKED FROM https://github.com/dajusc/Linux-Mouse-Keybinds
 
 # NOTE! To get this to work with Logitech g300s
-By default, most of the extra buttons on the the g300s don't actually trigger a mouse button event.  They assume you're going to bind them to those or keypresses or whatever using their software (which you can do).  If you're on Linux you can't use the Logitech software, so you can use https://github.com/krayon/ratslap to do that.  I configured my mouse as follows, noting that I didn't bother configuring all of them (I can't reach them all).
+By default, most of the extra buttons on the the g300s don't actually trigger a mouse button event.  Logitech assumes you're going to bind them something using their software, but if you're on Linux you can't use the Logitech software.  Instead you can use https://github.com/krayon/ratslap to bind the physical buttons to something that Linux-Mouse-Keybinds can recognise. I configured my mouse as follows, noting that I didn't bother configuring all of them (I can't reach them all).
 
 ```
 $ sudo ./ratslap -mf4 --g5 button6 --g4 button7 --g6 button9 --g7 button8 --select f4
